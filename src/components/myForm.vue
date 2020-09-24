@@ -182,7 +182,7 @@ export default {
         /deep/.el-textarea__inner {
           top: 0;
           border: none !important;
-          font-size: 0.16rem;
+          font-size: 0.1rem;
           height: 2.56rem;
           &::before {
             content: "111";
@@ -208,6 +208,49 @@ export default {
       img {
         width: 100%;
         height: 100%;
+      }
+    }
+  }
+}
+@media screen and (max-width: 1200px) {
+  .my-form {
+    height: auto;
+    .forms {
+      flex-wrap: wrap;
+      width: 100%;
+      height: auto !important;
+      .left {
+        width: 100vw;
+        margin-right: 0;
+        padding: 0.7rem 0.2rem 0.2rem;
+        font-size: 0.16rem;
+        input {
+          font-size: 0.16rem;
+        }
+        textarea {
+          font-size: 0.16rem;
+        }
+        .e-row {
+          .e-info {
+            height: 0.6rem;
+            /deep/.el-input__inner {
+              height: 0.58rem;
+            }
+          }
+        }
+        .l-row {
+          /deep/.el-textarea__inner {
+            font-size: 0.28rem;
+          }
+        }
+        .btn {
+          height: 0.8rem;
+          line-height: 0.8rem;
+          font-size: 0.22rem;
+        }
+      }
+      .right {
+        width: 100vw;
       }
     }
   }

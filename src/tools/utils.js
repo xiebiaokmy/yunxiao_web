@@ -3,7 +3,12 @@ export function init(win, doc) {
         // 获取window 宽度
         // zepto实现 $(window).width()就是这么干的
         var winWidth = window.innerWidth;
-        doc.documentElement.style.fontSize = (winWidth / 2560) * 100 + "px";
+        if (winWidth >= 1200) {
+            doc.documentElement.style.fontSize = (winWidth / 2560) * 100 + "px";
+        } else {
+            doc.documentElement.style.fontSize = (winWidth / 750) * 100 + "px";
+        }
+        console.log(doc.documentElement.style.fontSize)
         //设置页面元素根元素的px大小，然后所有rem以此为基准。
         //750为开发时候的页面宽度，10为基准px大小， 可以设置任意数字，方便开发时候rem计算
     }
