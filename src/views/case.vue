@@ -22,9 +22,9 @@
           </div>
         </div>
       </div>
-      <div class="page">
-        <el-pagination background layout="prev, pager, next" :total="count"></el-pagination>
-      </div>
+    </div>
+    <div class="page">
+      <el-pagination background layout="prev, pager, next" :pager-count="5" :total="count"></el-pagination>
     </div>
   </div>
 </template>
@@ -73,7 +73,7 @@ export default {
             "网站改版后整体跳出率降至50%;在线名营管理执行4个月后，品牌词首页呈现8条正面信"
         }
       ],
-      count: 1000
+      count: 100
     };
   },
   mounted() {
@@ -83,6 +83,7 @@ export default {
 </script>
 <style lang="less" scoped>
 .Case {
+  text-align: center;
   background: #eff7fe;
   .banner {
     height: 7rem;
@@ -148,12 +149,12 @@ export default {
             width: 0.42rem;
             height: 4px;
             background: #000000;
-            margin: 0.3rem 0;
+            margin: 0.1rem 0;
           }
           .brief {
             font-size: 0.14rem;
             margin-bottom: 0.3rem;
-            line-height: 0.2rem;
+            line-height: 0.26rem;
             overflow: hidden;
             text-overflow: ellipsis;
             display: -webkit-box;
@@ -188,6 +189,19 @@ export default {
   }
   /deep/.el-pagination.is-background .el-pager li:not(.disabled).active {
     background: #1a72e6;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .Case {
+    .list {
+      width: 100%;
+      padding: 0 0.2rem;
+      box-sizing: border-box;
+    }
+    .page {
+      box-sizing: border-box;
+      width: 100%;
+    }
   }
 }
 </style>

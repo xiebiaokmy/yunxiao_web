@@ -146,6 +146,7 @@ export default {
     .spans {
       font-size: 0.36rem;
       color: #fff;
+      text-align: center;
     }
   }
   .about-info {
@@ -157,6 +158,8 @@ export default {
     padding-top: 0.9rem;
     box-sizing: border-box;
     color: #000;
+    text-align: center;
+
     h1 {
       font-size: 0.36rem;
     }
@@ -203,6 +206,7 @@ export default {
   .team {
     padding-top: 0.77rem;
     color: #000;
+    text-align: center;
     h1 {
       font-size: 0.36rem;
       margin-bottom: 0.2rem;

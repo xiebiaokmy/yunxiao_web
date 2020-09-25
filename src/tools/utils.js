@@ -8,7 +8,6 @@ export function init(win, doc) {
         } else {
             doc.documentElement.style.fontSize = (winWidth / 750) * 100 + "px";
         }
-        console.log(doc.documentElement.style.fontSize)
         //设置页面元素根元素的px大小，然后所有rem以此为基准。
         //750为开发时候的页面宽度，10为基准px大小， 可以设置任意数字，方便开发时候rem计算
     }

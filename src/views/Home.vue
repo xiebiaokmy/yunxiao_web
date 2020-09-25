@@ -1,11 +1,11 @@
 <template>
   <div class="home">
     <header>
-      <div class="logo">
+      <div class="logo" @click="toOtherPage('/Index')">
         <img src="../../public/static/logo@2x.png" alt />
       </div>
       <nav>
-        <ul>
+        <ul :class="cruNav==1?'black-ul':''">
           <li class="p-t-li" :class="cruNav==1?'active':''" @click="toOtherPage('/Index')">
             <b>蕴啸首页</b>
             <p>HOME</p>
@@ -35,10 +35,13 @@
           </li>
         </ul>
       </nav>
-      <div class="tel"></div>
+      <div class="tel" :class="cruNav != 1?'tel1 ':''">
+        <div class="phone-icon"></div>
+        <div class="phone-num">021-6917233</div>
+      </div>
     </header>
     <div class="m-header">
-      <div class="logo">
+      <div class="logo" @click="toOtherPage('/Index')">
         <img src="../../public/static/logo@2x.png" alt />
       </div>
       <div class="m-nav" @click="showMobileNav">
@@ -47,7 +50,7 @@
     </div>
     <div class="m-nav-page" v-if="isShowMobileNav">
       <div class="m-show-header">
-        <div class="logo">
+        <div class="logo" @click="toOtherPage('/Index')">
           <img src="../../public/static/m-show-icon.png" alt />
         </div>
         <div class="m-nav" @click="showMobileNav">
@@ -109,7 +112,7 @@
               <ul>
                 <li @click="toOtherPage('/About')">公司介绍</li>
                 <li @click="toOtherPage('/Contact')">联系我们</li>
-                <li @click="toOtherPage('/Monitor')">新闻中心</li>
+                <li @click="toOtherPage('/NewsList')">新闻中心</li>
               </ul>
             </div>
             <div class="e-ul e-ul2">
@@ -171,7 +174,6 @@ export default {
     setNav(index, index1) {
       this.cruNav = index;
       this.subCruNav = index1;
-      console.log(this.cruNav, this.subCruNav);
     },
     //跳转页面
     toOtherPage(path) {
@@ -218,7 +220,9 @@ export default {
           flex-direction: column;
           align-content: center;
           justify-content: center;
+          text-align: center;
           margin: 0 0.3rem;
+          color: #fff;
           cursor: pointer;
           &:hover {
             background: #1a72e6;
@@ -266,10 +270,35 @@ export default {
           }
         }
       }
+      .black-ul {
+        .p-t-li {
+          color: #000;
+        }
+      }
     }
     .tel {
-      width: 2.1rem;
-      outline: 1px solid red;
+      display: flex;
+      align-items: center;
+      .phone-icon {
+        width: 0.4rem;
+        height: 0.4rem;
+        background-image: url("../../public/static/yj-iphone@2x.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .phone-num {
+        color: red;
+        font-size: 0.3rem;
+      }
+    }
+    .tel1 {
+      .phone-icon {
+        background-image: url("../../public/static/yj-email@2x.png");
+      }
+      .phone-num {
+        color: #fff;
+      }
     }
   }
   .m-header {
@@ -360,7 +389,7 @@ export default {
         display: flex;
         justify-content: space-between;
         height: 1.1rem;
-        align-items: center;
+        // align-items: center;
         padding: 0 0.34rem;
         .logo {
           width: 1.96rem;
@@ -382,14 +411,14 @@ export default {
         }
       }
       .m-show-nav {
-        margin-top: 1rem;
+        margin-top: 0.5rem;
         > ul {
           text-align: left;
           li {
             font-size: 0.3rem;
             font-weight: 600;
             color: #fff;
-            line-height: 1.4rem;
+            line-height: 1rem;
           }
           .activeLi {
             background: #1868d1;
@@ -398,6 +427,7 @@ export default {
         .m-ser-ul {
           li {
             padding: 0 0.34rem;
+            box-sizing: border-box;
             width: 100%;
             font-size: 0.26rem;
             font-weight: normal;
@@ -416,29 +446,41 @@ export default {
       display: flex;
       justify-content: space-between;
       height: 1.1rem;
-      align-items: center;
+      // align-items: center;
       padding: 0 0.34rem;
       box-sizing: border-box;
       position: relative;
       z-index: 11;
       .logo {
-        width: 1.96rem;
-        height: 0.53rem;
         img {
-          width: 100%;
-          height: 100%;
+          width: 1.96rem;
+          height: 0.53rem;
           vertical-align: middle;
         }
       }
       .m-nav {
-        width: 0.49rem;
-        height: 0.39rem;
         img {
-          width: 100%;
-          height: 100%;
-          vertical-align: middle;
+          width: 0.49rem;
+          height: 0.39rem;
         }
       }
+      // .logo {
+      //   width: 1.96rem;
+      //   height: 0.53rem;
+      //   img {
+      //     width: 100%;
+      //     height: 100%;
+      //     vertical-align: middle;
+      //   }
+      // }
+      // .m-nav {
+      //   width: 0.49rem;
+      //   height: 0.39rem;
+      //   img {
+      //     width: 100%;
+      //     height: 100%;
+      //   }
+      // }
     }
     footer {
       .auto {

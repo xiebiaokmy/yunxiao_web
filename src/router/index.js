@@ -8,7 +8,7 @@ const routes = [{
   path: "/",
   name: "Home",
   component: Home,
-  redirect: "/Spread",
+  redirect: "/Index",
   children: [{
       path: "/Index",
       name: "Index",
@@ -108,6 +108,24 @@ const routes = [{
           "../views/contact.vue"
         )
     },
+    {
+      path: "/NewsList",
+      name: "NewsList",
+      component: () =>
+        import(
+          /* webpackChunkName: "about" */
+          "../views/news/list.vue"
+        )
+    },
+    {
+      path: "/NewsDetail",
+      name: "NewsDetail",
+      component: () =>
+        import(
+          /* webpackChunkName: "about" */
+          "../views/news/detail.vue"
+        )
+    },
   ]
 }];
 const originalPush = VueRouter.prototype.push
@@ -117,6 +135,9 @@ VueRouter.prototype.push = function push(location) {
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
+  scrollBehavior: () => ({
+    y: 0
+  }),
   routes
 });
 

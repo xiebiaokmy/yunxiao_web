@@ -4,8 +4,8 @@ import router from "./router";
 import VueAwesomeSwiper from "vue-awesome-swiper";
 
 // import style (>= Swiper 6.x)
-import "swiper/swiper-bundle.css";
-
+// import "swiper/swiper-bundle.css";
+import 'swiper/css/swiper.css'
 Vue.use(VueAwesomeSwiper /* { default options with global component } */ );
 Vue.config.productionTip = false;
 import {

@@ -254,6 +254,7 @@ export default {
 </script>
 <style lang="less" scoped>
 .productsAndservices {
+  text-align: center;
   background: #eff7fe;
   .banner {
     height: 10.64rem;
@@ -533,6 +534,72 @@ export default {
           .name {
             font-size: 0.18rem;
             text-align: center;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1200px) {
+  .productsAndservices {
+    .banner {
+      height: 6.83rem;
+      padding-top: 1.6rem;
+      h1 {
+        margin-bottom: 0.4rem;
+      }
+      .spans {
+        width: 100%;
+        span {
+          font-size: 12px;
+        }
+      }
+      .tabs-box {
+        width: 100%;
+        .tabs {
+          display: flex;
+          > span {
+            width: 20%;
+            text-align: center;
+            color: #fff;
+          }
+        }
+      }
+    }
+    .servers {
+      > p {
+        width: 6rem;
+        line-height: 0.4rem;
+        margin: 0 auto 0.2rem;
+      }
+      .columns {
+        width: 100%;
+        flex-wrap: wrap;
+        padding: 0 0.35rem;
+        box-sizing: border-box;
+        margin: 1.1rem auto;
+        justify-content: space-between;
+        .e-column {
+          width: 48%;
+          margin-bottom: 0.24rem;
+          margin-right: 0;
+        }
+      }
+    }
+    .case-box {
+      height: auto;
+      padding-bottom: 1rem;
+      .ca-box {
+        width: 6.82rem;
+        margin: 0 auto;
+        .eachca {
+          width: 6.82rem;
+          flex-wrap: wrap;
+          .left {
+            width: 100%;
+          }
+          .right {
+            width: 100%;
           }
         }
       }

@@ -163,9 +163,10 @@ export default {
       ],
       swiperOption2: {
         spaceBetween: 30,
+        loop: true,
         centeredSlides: true,
         autoplay: {
-          delay: 500,
+          delay: 2000,
           disableOnInteraction: false
         },
         observer: true, //修改swiper自己或子元素时，自动初始化swiper
@@ -194,6 +195,7 @@ export default {
 </script>
 <style lang="less" scoped>
 .productsAndservices {
+  text-align: center;
   .banner {
     height: 10.64rem;
     background-image: url("../../../public/static/pAnds/fuwu4-banner@2x.png");
@@ -380,6 +382,72 @@ export default {
               width: 0.49rem;
               height: 0.09rem;
             }
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1200px) {
+  .productsAndservices {
+    .banner {
+      height: 6.83rem;
+      padding-top: 1.6rem;
+      h1 {
+        margin-bottom: 0.4rem;
+      }
+      .spans {
+        width: 100%;
+        span {
+          font-size: 12px;
+        }
+      }
+      .tabs-box {
+        width: 100%;
+        .tabs {
+          display: flex;
+          > span {
+            width: 20%;
+            text-align: center;
+            color: #fff;
+          }
+        }
+      }
+    }
+    .servers {
+      > p {
+        width: 6rem;
+        line-height: 0.4rem;
+        margin: 0 auto 0.2rem;
+      }
+      .columns {
+        width: 100%;
+        flex-wrap: wrap;
+        padding: 0 0.35rem;
+        box-sizing: border-box;
+        margin: 1.1rem auto;
+        justify-content: space-between;
+        .e-column {
+          width: 48%;
+          margin-bottom: 0.24rem;
+          margin-right: 0;
+        }
+      }
+    }
+    .case-box {
+      height: auto;
+      padding-bottom: 1rem;
+      .ca-box {
+        width: 6.82rem;
+        margin: 0 auto;
+        .eachca {
+          width: 6.82rem;
+          flex-wrap: wrap;
+          .left {
+            width: 100%;
+          }
+          .right {
+            width: 100%;
           }
         }
       }

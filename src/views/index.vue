@@ -1,16 +1,11 @@
 <template>
   <div class="index">
     <div class="banner">
-      <!-- <el-carousel trigger="click" :height="height">
-        <el-carousel-item v-for="item in list" :key="item">
-          <img :src="item" alt />
-        </el-carousel-item>
-      </el-carousel>-->
-      <swiper ref="bannerSwiper" :options="swiperOption2">
+      <swiper ref="bannerSwiper" :options="swiperOption2" v-if="list.length > 1">
         <swiper-slide class="each-banner" v-for="(item)  in list" :key="item">
           <img :src="item" alt />
         </swiper-slide>
-        <div class="swiper-pagination" slot="pagination2"></div>
+        <div class="swiper-pagination" slot="pagination"></div>
       </swiper>
     </div>
     <div class="our-serve">
@@ -36,7 +31,7 @@
                 <li>· 深度分析</li>
                 <li>· 微博微信运营</li>
               </ul>
-              <div class="more">
+              <div class="more" @click="toOtherPage('/Spread')">
                 <span>More</span>
                 <img src="../../public/static/jiantou-small@2x(1).png" alt="了解更多" />
               </div>
@@ -54,7 +49,7 @@
                 <li>· 腾讯朋友圈投放</li>
                 <li>· 今日头条投放</li>
               </ul>
-              <div class="more">
+              <div class="more" @click="toOtherPage('/Marketing')">
                 <span>More</span>
                 <img src="../../public/static/jiantou-small@2x(1).png" alt="了解更多" />
               </div>
@@ -78,7 +73,7 @@
                 <li>· TVC脚本撰写&执行</li>
                 <li>· 新媒体创意&执行</li>
               </ul>
-              <div class="more">
+              <div class="more" @click="toOtherPage('/Design')">
                 <span>More</span>
                 <img src="../../public/static/jiantou-small@2x(1).png" alt="了解更多" />
               </div>
@@ -98,7 +93,7 @@
                 <li>· 通路营销</li>
                 <li>· 直效营销</li>
               </ul>
-              <div class="more">
+              <div class="more" @click="toOtherPage('/Offline')">
                 <span>More</span>
                 <img src="../../public/static/jiantou-small@2x(1).png" alt="了解更多" />
               </div>
@@ -118,7 +113,7 @@
                 <li>· 艺人邀约</li>
                 <li>· 娱乐媒体合作</li>
               </ul>
-              <div class="more">
+              <div class="more" @click="toOtherPage('/Monitor')">
                 <span>More</span>
                 <img src="../../public/static/jiantou-small@2x(1).png" alt="了解更多" />
               </div>
@@ -144,7 +139,7 @@
               <li>· 深度分析</li>
               <li>· 微博微信运营</li>
             </ul>
-            <div class="more">
+            <div class="more" @click="toOtherPage('/Spread')">
               <span>More</span>
               <img src="../../public/static/jiantou-small@2x(1).png" alt="了解更多" />
             </div>
@@ -160,7 +155,7 @@
               <li>· 腾讯朋友圈投放</li>
               <li>· 今日头条投放</li>
             </ul>
-            <div class="more">
+            <div class="more" @click="toOtherPage('/Marketing')">
               <span>More</span>
               <img src="../../public/static/jiantou-small@2x(1).png" alt="了解更多" />
             </div>
@@ -182,7 +177,7 @@
               <li>· TVC脚本撰写&执行</li>
               <li>· 新媒体创意&执行</li>
             </ul>
-            <div class="more">
+            <div class="more" @click="toOtherPage('/Design')">
               <span>More</span>
               <img src="../../public/static/jiantou-small@2x(1).png" alt="了解更多" />
             </div>
@@ -200,7 +195,7 @@
               <li>· 通路营销</li>
               <li>· 直效营销</li>
             </ul>
-            <div class="more">
+            <div class="more" @click="toOtherPage('/Offline')">
               <span>More</span>
               <img src="../../public/static/jiantou-small@2x(1).png" alt="了解更多" />
             </div>
@@ -218,7 +213,7 @@
               <li>· 艺人邀约</li>
               <li>· 娱乐媒体合作</li>
             </ul>
-            <div class="more">
+            <div class="more" @click="toOtherPage('/Monitor')">
               <span>More</span>
               <img src="../../public/static/jiantou-small@2x(1).png" alt="了解更多" />
             </div>
@@ -348,127 +343,8 @@
               <img src="../../public/static/tu36@2x.png" alt />
             </div>
           </swiper-slide>
-          <div class="swiper-pagination" slot="pagination2"></div>
+          <div class="swiper-pagination" slot="pagination"></div>
         </swiper>
-        <!-- <el-carousel trigger="click" indicator-position="outside" :height="height1">
-          <el-carousel-item>
-            <div class="each">
-              <img src="../../public/static/tu1@2x.png" alt />
-              <img src="../../public/static/tu2@2x.png" alt />
-              <img src="../../public/static/tu3@2x.png" alt />
-              <img src="../../public/static/tu4@2x.png" alt />
-              <img src="../../public/static/tu5@2x.png" alt />
-              <img src="../../public/static/tu6@2x.png" alt />
-              <img src="../../public/static/tu7@2x.png" alt />
-              <img src="../../public/static/tu8@2x.png" alt />
-              <img src="../../public/static/tu9@2x.png" alt />
-              <img src="../../public/static/tu10@2x.png" alt />
-              <img src="../../public/static/tu12@2x.png" alt />
-              <img src="../../public/static/tu13@2x.png" alt />
-              <img src="../../public/static/tu14@2x.png" alt />
-              <img src="../../public/static/tu15@2x.png" alt />
-              <img src="../../public/static/tu16@2x.png" alt />
-              <img src="../../public/static/tu17@2x.png" alt />
-              <img src="../../public/static/tu18@2x.png" alt />
-              <img src="../../public/static/tu19@2x.png" alt />
-              <img src="../../public/static/tu20@2x.png" alt />
-              <img src="../../public/static/tu21@2x.png" alt />
-              <img src="../../public/static/tu22@2x.png" alt />
-              <img src="../../public/static/tu23@2x.png" alt />
-              <img src="../../public/static/tu24@2x.png" alt />
-              <img src="../../public/static/tu25@2x.png" alt />
-              <img src="../../public/static/tu26@2x.png" alt />
-              <img src="../../public/static/tu27@2x.png" alt />
-              <img src="../../public/static/tu28@2x.png" alt />
-              <img src="../../public/static/tu29@2x.png" alt />
-              <img src="../../public/static/tu30@2x.png" alt />
-              <img src="../../public/static/tu31@2x.png" alt />
-              <img src="../../public/static/tu32@2x.png" alt />
-              <img src="../../public/static/tu33@2x.png" alt />
-              <img src="../../public/static/tu34@2x.png" alt />
-              <img src="../../public/static/tu35@2x.png" alt />
-              <img src="../../public/static/tu36@2x.png" alt />
-            </div>
-          </el-carousel-item>
-          <el-carousel-item>
-            <div class="each">
-              <img src="../../public/static/tu1@2x.png" alt />
-              <img src="../../public/static/tu2@2x.png" alt />
-              <img src="../../public/static/tu3@2x.png" alt />
-              <img src="../../public/static/tu4@2x.png" alt />
-              <img src="../../public/static/tu5@2x.png" alt />
-              <img src="../../public/static/tu6@2x.png" alt />
-              <img src="../../public/static/tu7@2x.png" alt />
-              <img src="../../public/static/tu8@2x.png" alt />
-              <img src="../../public/static/tu9@2x.png" alt />
-              <img src="../../public/static/tu10@2x.png" alt />
-              <img src="../../public/static/tu12@2x.png" alt />
-              <img src="../../public/static/tu13@2x.png" alt />
-              <img src="../../public/static/tu14@2x.png" alt />
-              <img src="../../public/static/tu15@2x.png" alt />
-              <img src="../../public/static/tu16@2x.png" alt />
-              <img src="../../public/static/tu17@2x.png" alt />
-              <img src="../../public/static/tu18@2x.png" alt />
-              <img src="../../public/static/tu19@2x.png" alt />
-              <img src="../../public/static/tu20@2x.png" alt />
-              <img src="../../public/static/tu21@2x.png" alt />
-              <img src="../../public/static/tu22@2x.png" alt />
-              <img src="../../public/static/tu23@2x.png" alt />
-              <img src="../../public/static/tu24@2x.png" alt />
-              <img src="../../public/static/tu25@2x.png" alt />
-              <img src="../../public/static/tu26@2x.png" alt />
-              <img src="../../public/static/tu27@2x.png" alt />
-              <img src="../../public/static/tu28@2x.png" alt />
-              <img src="../../public/static/tu29@2x.png" alt />
-              <img src="../../public/static/tu30@2x.png" alt />
-              <img src="../../public/static/tu31@2x.png" alt />
-              <img src="../../public/static/tu32@2x.png" alt />
-              <img src="../../public/static/tu33@2x.png" alt />
-              <img src="../../public/static/tu34@2x.png" alt />
-              <img src="../../public/static/tu35@2x.png" alt />
-              <img src="../../public/static/tu36@2x.png" alt />
-            </div>
-          </el-carousel-item>
-          <el-carousel-item>
-            <div class="each">
-              <img src="../../public/static/tu1@2x.png" alt />
-              <img src="../../public/static/tu2@2x.png" alt />
-              <img src="../../public/static/tu3@2x.png" alt />
-              <img src="../../public/static/tu4@2x.png" alt />
-              <img src="../../public/static/tu5@2x.png" alt />
-              <img src="../../public/static/tu6@2x.png" alt />
-              <img src="../../public/static/tu7@2x.png" alt />
-              <img src="../../public/static/tu8@2x.png" alt />
-              <img src="../../public/static/tu9@2x.png" alt />
-              <img src="../../public/static/tu10@2x.png" alt />
-              <img src="../../public/static/tu12@2x.png" alt />
-              <img src="../../public/static/tu13@2x.png" alt />
-              <img src="../../public/static/tu14@2x.png" alt />
-              <img src="../../public/static/tu15@2x.png" alt />
-              <img src="../../public/static/tu16@2x.png" alt />
-              <img src="../../public/static/tu17@2x.png" alt />
-              <img src="../../public/static/tu18@2x.png" alt />
-              <img src="../../public/static/tu19@2x.png" alt />
-              <img src="../../public/static/tu20@2x.png" alt />
-              <img src="../../public/static/tu21@2x.png" alt />
-              <img src="../../public/static/tu22@2x.png" alt />
-              <img src="../../public/static/tu23@2x.png" alt />
-              <img src="../../public/static/tu24@2x.png" alt />
-              <img src="../../public/static/tu25@2x.png" alt />
-              <img src="../../public/static/tu26@2x.png" alt />
-              <img src="../../public/static/tu27@2x.png" alt />
-              <img src="../../public/static/tu28@2x.png" alt />
-              <img src="../../public/static/tu29@2x.png" alt />
-              <img src="../../public/static/tu30@2x.png" alt />
-              <img src="../../public/static/tu31@2x.png" alt />
-              <img src="../../public/static/tu32@2x.png" alt />
-              <img src="../../public/static/tu33@2x.png" alt />
-              <img src="../../public/static/tu34@2x.png" alt />
-              <img src="../../public/static/tu35@2x.png" alt />
-              <img src="../../public/static/tu36@2x.png" alt />
-            </div>
-          </el-carousel-item>
-        </el-carousel>-->
       </div>
     </div>
     <div class="news">
@@ -498,7 +374,7 @@
           <div class="more">More</div>
         </div>
       </div>
-      <div class="show-more">
+      <div class="show-more" @click="toOtherPage('/NewsList')">
         <span>More</span>
         <img src="../../public/static/jiantou-big.png" alt="了解更多" />
       </div>
@@ -573,10 +449,30 @@ export default {
         }
       },
       swiperOption2: {
-        spaceBetween: 30,
+        spaceBetween: 0,
+        loop: true,
         centeredSlides: true,
         autoplay: {
-          delay: 500,
+          delay: 2000,
+          disableOnInteraction: false
+        },
+        observer: true, //修改swiper自己或子元素时，自动初始化swiper
+        observeParents: true, //修改swiper的父元素时，自动初始化swiper
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev"
+        }
+      },
+      swiperOption3: {
+        spaceBetween: 0,
+        loop: true,
+        centeredSlides: true,
+        autoplay: {
+          delay: 2000,
           disableOnInteraction: false
         },
         observer: true, //修改swiper自己或子元素时，自动初始化swiper
@@ -591,6 +487,11 @@ export default {
         }
       }
     };
+  },
+  methods: {
+    toOtherPage(path) {
+      console.log(111), this.$router.push(path);
+    }
   },
   computed: {
     swiper() {
@@ -759,6 +660,7 @@ export default {
   .news {
     padding-top: 1.04rem;
     margin-bottom: 1.44rem;
+    text-align: center;
     > h1 {
       font-size: 0.36rem;
       font-weight: 700;
@@ -894,8 +796,9 @@ export default {
       }
     }
     .news {
-      /deep/.swiper-slide {
-        // width: 4.76rem !important;
+      > p {
+        padding: 0 0.2rem;
+        line-height: 0.36rem;
       }
       .news-box {
         width: 100%;
