@@ -36,8 +36,7 @@
         </ul>
       </nav>
       <div class="tel" :class="cruNav != 1?'tel1 ':''">
-        <div class="phone-icon"></div>
-        <div class="phone-num">021-6917233</div>
+        <img class="phone-icon" src="../../public/static/top-tel.png" alt />
       </div>
     </header>
     <div class="m-header">
@@ -277,27 +276,19 @@ export default {
       }
     }
     .tel {
-      display: flex;
-      align-items: center;
       .phone-icon {
-        width: 0.4rem;
-        height: 0.4rem;
-        background-image: url("../../public/static/yj-iphone@2x.png");
+        width: 2rem;
+        height: 0.24rem;
+        vertical-align: 0.16rem;
+        background-image: url("../../public/static/top-tel.png");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-      }
-      .phone-num {
-        color: red;
-        font-size: 0.3rem;
       }
     }
     .tel1 {
       .phone-icon {
         background-image: url("../../public/static/yj-email@2x.png");
-      }
-      .phone-num {
-        color: #fff;
       }
     }
   }

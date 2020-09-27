@@ -35,15 +35,33 @@
       <h1>管理团队</h1>
       <p>SEO品牌技术，效果有保障</p>
       <div class="team-user">
-        <div class="e-user" v-for="(item,index) in team" :key="item.headIcon+index">
-          <div class="user-img">
-            <img :src="item.headIcon" alt />
-          </div>
-          <div class="introduce">
-            <div class="name">{{item.name}}</div>
-            <div class="title">{{item.title}}</div>
-            <div class="dian"></div>
-            <div class="brief" :title="item.brief">{{item.brief}}</div>
+        <div class="team-mo">
+          <swiper ref="bannerSwiper" :options="swiperOption">
+            <swiper-slide class="e-user" v-for="(item,index) in team" :key="item.headIcon+index">
+              <div class="user-img">
+                <img :src="item.headIcon" alt />
+              </div>
+              <div class="introduce">
+                <div class="name">{{item.name}}</div>
+                <div class="title">{{item.title}}</div>
+                <div class="dian"></div>
+                <div class="brief" :title="item.brief">{{item.brief}}</div>
+              </div>
+            </swiper-slide>
+            <div class="swiper-pagination" slot="pagination"></div>
+          </swiper>
+        </div>
+        <div class="team-pc">
+          <div class="e-user" v-for="(item,index) in team" :key="item.headIcon+index">
+            <div class="user-img">
+              <img :src="item.headIcon" alt />
+            </div>
+            <div class="introduce">
+              <div class="name">{{item.name}}</div>
+              <div class="title">{{item.title}}</div>
+              <div class="dian"></div>
+              <div class="brief" :title="item.brief">{{item.brief}}</div>
+            </div>
           </div>
         </div>
       </div>
@@ -117,7 +135,16 @@ export default {
           brief:
             "媒介策略中心总经理5年BTV媒介工作经验，12年数字媒介工作经验。拥有丰富的能源、汽车、金融FMCG、电商品类经验。"
         }
-      ]
+      ],
+      swiperOption: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+        freeMode: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true
+        }
+      }
     };
   },
   mounted() {
@@ -162,6 +189,7 @@ export default {
 
     h1 {
       font-size: 0.36rem;
+      font-weight: 600;
     }
     p {
       font-size: 0.18rem;
@@ -216,70 +244,172 @@ export default {
       margin-bottom: 0.7rem;
     }
     .team-user {
-      width: 15.18rem;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      .e-user {
-        width: 3.6rem;
-        height: 5.66rem;
-        position: relative;
-        margin-right: 0.26rem;
-        margin-bottom: 0.2rem;
-        &:nth-child(4) {
-          margin-right: 0;
-        }
-        .user-img {
+      .team-pc {
+        width: 15.18rem;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        .e-user {
           width: 3.6rem;
           height: 5.66rem;
-          img {
+          position: relative;
+          margin-right: 0.26rem;
+          margin-bottom: 0.2rem;
+          &:nth-child(4) {
+            margin-right: 0;
+          }
+          .user-img {
+            width: 3.6rem;
+            height: 5.66rem;
+            img {
+              width: 100%;
+              height: 100%;
+              vertical-align: middle;
+            }
+          }
+          .introduce {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 0;
             width: 100%;
             height: 100%;
-            vertical-align: middle;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 2rem 0.56rem 0;
+            box-sizing: border-box;
+            text-align: left;
+            color: #fff;
+            .name {
+              font-size: 0.32rem;
+            }
+            .title {
+              font-size: 0.18rem;
+              margin-top: 0.05rem;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              display: -webkit-box;
+              -webkit-line-clamp: 2;
+              -webkit-box-orient: vertical;
+            }
+            .dian {
+              width: 0.35rem;
+              height: 0.06rem;
+              background: #fff;
+              border-radius: 0.03rem;
+              margin: 0.4rem 0;
+            }
+            .brief {
+              font-size: 0.18rem;
+              line-height: 0.24rem;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              display: -webkit-box;
+              -webkit-line-clamp: 4;
+              -webkit-box-orient: vertical;
+            }
+          }
+          &:hover .introduce {
+            display: block;
           }
         }
-        .introduce {
-          display: none;
-          position: absolute;
-          left: 0;
-          top: 0;
+      }
+      .team-mo {
+        display: none;
+        .e-user {
+          width: 3.6rem;
+          height: 5.66rem;
+          position: relative;
+          margin-right: 0.26rem;
+          margin-bottom: 0.2rem;
+          &:nth-child(4) {
+            margin-right: 0;
+          }
+          .user-img {
+            width: 3.6rem;
+            height: 5.66rem;
+            img {
+              width: 100%;
+              height: 100%;
+              vertical-align: middle;
+            }
+          }
+          .introduce {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 2rem 0.56rem 0;
+            box-sizing: border-box;
+            text-align: left;
+            color: #fff;
+            .name {
+              font-size: 0.32rem;
+            }
+            .title {
+              font-size: 0.18rem;
+              margin-top: 0.05rem;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              display: -webkit-box;
+              -webkit-line-clamp: 2;
+              -webkit-box-orient: vertical;
+            }
+            .dian {
+              width: 0.35rem;
+              height: 0.06rem;
+              background: #fff;
+              border-radius: 0.03rem;
+              margin: 0.4rem 0;
+            }
+            .brief {
+              font-size: 0.18rem;
+              line-height: 0.24rem;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              display: -webkit-box;
+              -webkit-line-clamp: 4;
+              -webkit-box-orient: vertical;
+            }
+          }
+          &:hover .introduce {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1200px) {
+  .About {
+    .about-info {
+      height: 11.1rem;
+      > p {
+        margin-bottom: 0.4rem;
+      }
+      .info-box {
+        width: 100%;
+        flex-wrap: wrap;
+        .left {
           width: 100%;
-          height: 100%;
-          background: rgba(0, 0, 0, 0.2);
-          padding: 2rem 0.56rem 0;
-          box-sizing: border-box;
-          text-align: left;
-          color: #fff;
-          .name {
-            font-size: 0.32rem;
-          }
-          .title {
-            font-size: 0.18rem;
-            margin-top: 0.05rem;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-          }
-          .dian {
-            width: 0.35rem;
-            height: 0.06rem;
-            background: #fff;
-            border-radius: 0.03rem;
-            margin: 0.4rem 0;
-          }
-          .brief {
-            font-size: 0.18rem;
-            line-height: 0.24rem;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: -webkit-box;
-            -webkit-line-clamp: 4;
-            -webkit-box-orient: vertical;
-          }
+          padding: 0 0.2rem;
+          margin-right: 0;
         }
-        &:hover .introduce {
+        .right {
+          margin-top: 0.5rem;
+          width: 100%;
+          padding: 0 0.2rem;
+        }
+      }
+    }
+    .team {
+      .team-user {
+        .team-pc {
+          display: none;
+        }
+        .team-mo {
           display: block;
         }
       }

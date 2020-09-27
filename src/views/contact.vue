@@ -200,4 +200,25 @@ export default {
     }
   }
 }
+@media screen and (max-width: 1200px) {
+  .Contact {
+    background: #eff7fe;
+    .con-box {
+      margin-bottom: 0.3rem;
+      .map-box {
+        flex-wrap: wrap;
+        width: 100%;
+        padding: 0 0.2rem;
+        box-sizing: border-box;
+        .left {
+          width: 100%;
+        }
+        .right {
+          width: 100%;
+          height: 5rem;
+        }
+      }
+    }
+  }
+}
 </style>
